@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const patientsSchema = new Schema({
-    nombre: {
+    name: {
         type: String,
         // trim delete spaces in white
         trim: true

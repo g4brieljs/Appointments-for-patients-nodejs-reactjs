@@ -1,5 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const routes = require('./routes');
+const bodyParser = require('body-parser');
 
 // create the server
 const app = express();
@@ -11,6 +13,16 @@ mongoose.connect('mongodb://localhost/hospital', {
     useUnifiedTopology: true,
     useFindAndModify: false
 });
+
+// Add bodyParser
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+
+
+// Add routing
+app.use('/', routes());
+// Add middleware
+
 
 // Port and run
 app.listen(4000, () => {
