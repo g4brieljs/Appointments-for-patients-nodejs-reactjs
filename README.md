@@ -230,4 +230,29 @@ exports.updatePatient = async (req, res, next) => {
 
 # Delete a record
 
+```js
+//  Delete register with ID
+exports.deletePatient = async (req, res, next) => {
+
+    try{
+        
+        await Patients.findOneAndDelete({_id : req.params.id});
+        res.json({message : 'The Patient was eliminated'});
+    }catch (error){
+        console.log(error);
+        next();
+    }
+
+}
+```
+
+
+# Creating the Frontend / Reactjs
+
+First you need use the command>
+
+```js
+npx create-react-app frontend
+```
+
 
